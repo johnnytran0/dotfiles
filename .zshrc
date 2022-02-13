@@ -9,6 +9,9 @@ export PATH=$(env -i bash --login --norc -c 'echo $PATH')
 # ENV variables
 export ANSIBLE_PRIVATE_KEY_FILE=~/.ssh/id_rsa
 export HOMEBREW_AUTO_UPDATE_SECS=604800
+# remove username@host from t
+export DISABLE_AUTO_TITLE="true"
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # Enable plugins.
 plugins=(git history kubectl history-substring-search)
@@ -52,7 +55,7 @@ bindkey '\e\eOC' forward-word
 # oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 # must come after sourcing oh-my-zsh, else it is overwritten
-export PROMPT='🔥%B%m:%~%b%% '
+export PROMPT='🔥%~%b%% '
 
 # LaTeX
 export TEXTLIVE_ROOT=/usr/local/texlive/2021basic/bin/universal-darwin

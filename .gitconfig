@@ -1,4 +1,6 @@
 # https://git-scm.com/docs/git-config#_configuration_file
+[advice]
+	# statusHints = false
 [alias]
 	au = add -u
   c = commit
@@ -7,7 +9,12 @@
   cam = commit -am
   d = diff
   dc = diff --cached
+  discard = reset --hard origin/HEAD
+  pushu = push -f origin HEAD
   force = push -f origin HEAD
+  graph = log --graph
+  l1 = log -n 1
+  l3 = log -n 3
   rs = reset --soft origin/HEAD
   rh = reset --hard origin/HEAD
 [core]

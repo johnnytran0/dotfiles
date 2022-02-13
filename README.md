@@ -35,4 +35,4 @@ $ chmod u+x ~/.zsh
 
 # License
 
-MIT
+[MIT](https://github.com/johnnytr-n/dotfiles/blob/main/LICENSE) © Johnny Tran

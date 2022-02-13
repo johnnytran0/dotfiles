@@ -32,7 +32,10 @@ else
 fi
 
 # aliases
-# usage - pass docker container name to get IP
+alias ~="cd ~/"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
 alias ap=ansible-playbook
 alias mem='top -o rsize'
 alias c=clear
