@@ -1,0 +1,28 @@
+# https://git-scm.com/docs/git-config#_configuration_file
+[alias]
+	au = add -u
+  c = commit
+  ca = commit -a
+  cm = commit -m
+  cam = commit -am
+  d = diff
+  dc = diff --cached
+  force = push -f origin HEAD
+  rs = reset --soft origin/HEAD
+  rh = reset --hard origin/HEAD
+[core]
+	autocrlf = input
+	editor = vim
+	excludesFile = ~/.gitignore
+	pager = cat
+[credential]
+  helper = osxkeychain
+[init]
+	defaultBranch = main
+[pager]
+	branch = false
+[user]
+	name = Johnny Tran
+	email = 48148643+johnnytr-n@users.noreply.github.com
+[web]
+	browser = 'google-chrome'

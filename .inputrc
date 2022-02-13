@@ -1,0 +1,16 @@
+# Allow up/down autocompletion of commands from bash history.
+# From: coderwall.com/p/oqtj8w
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set show-all-if-ambiguous on
+set completion-ignore-case on
+# ensures l/r arrow continues to work https://codeinthehole.com/tips/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
+"\e[C": forward-char
+"\e[D": backward-char
+
+# fix keybinds in Pycharm terminal: https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000013224/comments/360000193450
+bindkey '\e\eOD' backward-word 
+bindkey '\e\eOC' forward-word
+
+# Uncomment to enable vi-like command line editing mode.
+# set editing-mode vi
