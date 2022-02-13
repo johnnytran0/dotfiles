@@ -20,6 +20,7 @@ plugins=(git history kubectl history-substring-search)
 # If we're on OS X and using Homebrew package manager, do some Homebrew-specific environmental tweaks
 if command_exists brew; then
   HOMEBREW_PREFIX="$(brew --prefix)"
+  export PATH="/usr/local/sbin:$PATH"
 else
   # M1 install
   HOMEBREW_PREFIX="/opt/homebrew"
