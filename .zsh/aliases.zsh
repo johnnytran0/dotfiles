@@ -12,6 +12,25 @@ if [ $? -eq 1 ]; then # The environment ls isn't GNU ls; we're not on Linux
   fi
 fi
 
+# macOs
+if [[ "$OSTYPE" == darwin* ]]; then
+  # Short-cuts for copy-paste.
+  alias c='pbcopy'
+  alias p='pbpaste'
+
+  # Remove all items safely, to Trash (`brew install trash`).
+  [[ -z "$commands[trash]" ]] || alias rm='trash' 2>&1 > /dev/null
+
+  # Sniff network info.
+  alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+
+  # Process grep should output full paths to binaries.
+  alias pgrep='pgrep -fli'
+else
+  # Process grep should output full paths to binaries.
+  alias pgrep='pgrep -fl'
+fi
+
 # aliases
 # usage - pass docker container name to get IP
 alias ap=ansible-playbook
@@ -22,6 +41,7 @@ alias dc=docker-compose
 alias docker_ip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias docker_host="echo $(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)"
 alias grep='grep --color'
+alias json='python -m json.tool'
 alias lsd='ls -lah | grep "^d"'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 
