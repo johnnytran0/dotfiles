@@ -39,6 +39,16 @@ define() {
   fi
 }
 
+# Execute commands for each file in current directory.
+# https://stackoverflow.com/questions/10523415/execute-command-on-all-files-in-a-directory
+each() {
+  for i in *;
+  do
+    echo "${i}:"
+    $@ "${i}"
+  done
+}
+
 # Extracts archives
 # Found at <http://pastebin.com/CTra4QTF>
 extract() {
