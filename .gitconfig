@@ -11,7 +11,7 @@
   d = diff
   discard = reset --hard origin/HEAD
   ds = diff --staged
-  pushu = push -f origin HEAD
+  pushu = push -u origin HEAD
   force = push -f origin HEAD
   graph = log --graph
   l1 = log -n 1
