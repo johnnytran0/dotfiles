@@ -3,13 +3,14 @@
 	# statusHints = false
 [alias]
 	au = add -u
+  add = add .
   c = commit
   ca = commit -a
   cm = commit -m
   cam = commit -am
   d = diff
-  dc = diff --cached
   discard = reset --hard origin/HEAD
+  ds = diff --staged
   pushu = push -f origin HEAD
   force = push -f origin HEAD
   graph = log --graph

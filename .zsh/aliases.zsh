@@ -46,6 +46,8 @@ alias docker_host="echo $(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | gre
 alias grep='grep --color'
 alias json='python -m json.tool'
 alias lsd='ls -lah | grep "^d"'
+# https://github.com/tmuxinator/tmuxinator#shorthand
+alias mux=tmuxinator
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 
 # Mac

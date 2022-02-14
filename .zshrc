@@ -10,8 +10,8 @@ export PATH=$(env -i bash --login --norc -c 'echo $PATH')
 export ANSIBLE_PRIVATE_KEY_FILE=~/.ssh/id_rsa
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 # remove username@host from t
-export DISABLE_AUTO_TITLE="true"
-export EDITOR="vim"
+export DISABLE_AUTO_TITLE=true
+export EDITOR=vim
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # Enable plugins.
@@ -29,6 +29,13 @@ if command_exists brew; then
 else
   # M1 install
   HOMEBREW_PREFIX="/opt/homebrew"
+fi
+
+if [ -d "/usr/local/opt/ruby/bin" ]; then
+  export PATH=/usr/local/opt/ruby/bin:$PATH
+  # elif Apple M1
+  # export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
 # When connecting via ssh, always [re]attach to a terminal manager
