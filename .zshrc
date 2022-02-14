@@ -11,6 +11,7 @@ export ANSIBLE_PRIVATE_KEY_FILE=~/.ssh/id_rsa
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 # remove username@host from t
 export DISABLE_AUTO_TITLE="true"
+export EDITOR="vim"
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # Enable plugins.
@@ -18,6 +19,7 @@ plugins=(git history kubectl history-substring-search)
 
 . ~/.zsh/aliases.zsh
 . ~/.zsh/functions.zsh
+. ~/.zsh/.iterm2_shell_integration.zsh
 
 # Homebrew
 # If we're on OS X and using Homebrew package manager, do some Homebrew-specific environmental tweaks
