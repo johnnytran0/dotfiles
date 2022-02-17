@@ -1,0 +1,81 @@
+---
+- name: link johnnytr-n/dotfiles to ~
+  hosts: localhost
+  gather_facts: no
+  become: no
+  vars:
+    dotfiles_repo: git@github.com:johnnytr-n/dotfiles.git
+    dotfiles_files:
+      - .bash_profile
+      - .bashrc
+      - .gitconfig
+      - .gitignore
+      - .gitmodules
+      - .inputrc
+      - .ssh_config
+      - .tmux.conf
+      - .vimrc
+      - .zprofile
+      - .zsh
+      - .zshrc
+      - .zlogin
+  tasks:
+    # TODO oh-my-zsh brew
+
+    - name: Ensure dotfiles repository is cloned locally.
+      git:
+        repo: "{{ dotfiles_repo }}"
+        dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+        force: yes
+        umask: '0077'
+        version: main
+        accept_hostkey: false
+      become: false
+
+    # github doesn't track directory permissions
+    - file:
+        path: "{{ lookup('env', 'HOME') }}/.dotfiles/.zsh"
+        mode: 0700
+
+    # DEBUG
+    # - find:
+    #     paths: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    #     patterns: ".*"
+    #     hidden: yes
+    #   register: stdout
+    # - debug:
+    #     var: stdout
+
+    - name: Ensure all configured dotfiles are links.
+      command: "ls -F {{ lookup('env', 'HOME') }}/{{ item }}"
+      register: existing_dotfile_info
+      failed_when: false
+      check_mode: false
+      changed_when: false
+      with_items: "{{ dotfiles_files }}"
+
+    - name: Remove existing dotfiles file if a replacement is being linked.
+      file:
+        path: "{{ lookup('env', 'HOME') }}/{{ dotfiles_files[item.0] }}"
+        state: absent
+      when: "'@' not in item.1.stdout"
+      with_indexed_items: "{{ existing_dotfile_info.results }}"
+
+    - name: Link dotfiles into home folder.
+      file:
+        src: "{{ lookup('env', 'HOME') }}/.dotfiles/{{ item }}"
+        dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+        state: link
+        mode: 0644
+      become: false
+      with_items: "{{ dotfiles_files }}"
+
+    - file:
+        src: "{{ lookup('env', 'HOME') }}/.dotfiles/.zsh"
+        dest: "{{ lookup('env', 'HOME') }}/.zsh"
+        state: link
+        mode: 0744
+      become: false
+
+    # - name: change shell
+    #   shell: chsh -s $(which zsh)
