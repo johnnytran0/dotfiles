@@ -35,7 +35,7 @@
     - name: Ensure directory permissions that GitHub doesn't track
       file:
         path: "{{ lookup('env', 'HOME') }}/.config/dotfiles/.zsh"
-        mode: 0700
+        mode: 0744
 
     - name: Ensure all configured dotfiles are links.
       command: "ls -F {{ lookup('env', 'HOME') }}/{{ item }}"
@@ -58,7 +58,7 @@
         dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
         state: link
         mode: 0644
-      with_items: "{{ dotfiles_files }}"
+      with_items: "{{ dotfiles_files | difference(['.zsh']) }}"
 
     - name: Add user permissions to execute link
       file:

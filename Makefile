@@ -1,6 +1,5 @@
 all:
 	ansible-playbook ansible/dotfiles.yml
 
-
-never:
+force:
 	ansible-playbook ansible/dotfiles.yml --tags never
