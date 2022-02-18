@@ -25,26 +25,17 @@
     - name: Ensure dotfiles repository is cloned locally.
       git:
         repo: "{{ dotfiles_repo }}"
-        dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+        dest: "{{ lookup('env', 'HOME') }}/.config/dotfiles"
         force: yes
         umask: '0077'
         version: main
         accept_hostkey: false
-      become: false
+      tags: never
 
-    # github doesn't track directory permissions
-    - file:
-        path: "{{ lookup('env', 'HOME') }}/.dotfiles/.zsh"
+    - name: Ensure directory permissions that GitHub doesn't track
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.config/dotfiles/.zsh"
         mode: 0700
-
-    # DEBUG
-    # - find:
-    #     paths: "{{ lookup('env', 'HOME') }}/.dotfiles"
-    #     patterns: ".*"
-    #     hidden: yes
-    #   register: stdout
-    # - debug:
-    #     var: stdout
 
     - name: Ensure all configured dotfiles are links.
       command: "ls -F {{ lookup('env', 'HOME') }}/{{ item }}"
@@ -63,19 +54,19 @@
 
     - name: Link dotfiles into home folder.
       file:
-        src: "{{ lookup('env', 'HOME') }}/.dotfiles/{{ item }}"
+        src: "{{ lookup('env', 'HOME') }}/.config/dotfiles/{{ item }}"
         dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
         state: link
         mode: 0644
-      become: false
       with_items: "{{ dotfiles_files }}"
 
-    - file:
-        src: "{{ lookup('env', 'HOME') }}/.dotfiles/.zsh"
-        dest: "{{ lookup('env', 'HOME') }}/.zsh"
-        state: link
-        mode: 0744
-      become: false
+    - name: Add user permissions to execute link
+      file:
+          src: "{{ lookup('env', 'HOME') }}/.config/dotfiles/.zsh"
+          dest: "{{ lookup('env', 'HOME') }}/.zsh"
+          state: link
+          mode: 0744
 
-    # - name: change shell
-    #   shell: chsh -s $(which zsh)
+    - user:
+        name: "{{ lookup('env', 'USER') }}"
+        shell: /bin/zsh
