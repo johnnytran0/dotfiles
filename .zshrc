@@ -19,7 +19,6 @@ plugins=(git history kubectl history-substring-search)
 
 . ~/.zsh/aliases.zsh
 . ~/.zsh/functions.zsh
-. ~/.zsh/.iterm2_shell_integration.zsh
 
 # Homebrew
 # If we're on OS X and using Homebrew package manager, do some Homebrew-specific environmental tweaks

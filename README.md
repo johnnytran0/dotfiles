@@ -27,7 +27,23 @@ drw-r--r--
 
 $ chmod u+x ~/.zsh
 ```
+# Monokai/Molokai hex colors. 
+# http://www.colourlovers.com/lover/Monokai/colors 
+#   cyan - #00b9d7
+#   gold/brown - #abaa98
+#   green - #82cdb9
+#   off-white #f5f5f5
+#   orange - #f37259
+#   pink  - #ff3d70
+#   pink/magenta - #f7208b
+#   yellow - #f9f5c2
 
+
+```bash
+for i in {0..255}; do
+    printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+done
+```
 
 # References
 

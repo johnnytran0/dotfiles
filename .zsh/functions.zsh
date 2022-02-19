@@ -22,6 +22,10 @@ clip() {
   fi
 }
 
+color() {
+  for i in {0..255}; do  printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done
+}
+
 # this should be a very portable way of checking if something is on the path
 # usage: "if command_exists foo; then echo it exists; fi"
 command_exists() {
@@ -133,7 +137,6 @@ pbex () {
     fi
 }
 
-# functions
 nil () {
 	echo '00000000-0000-0000-0000-00000000' |
 		pbcopy && pbpaste;
@@ -146,3 +149,15 @@ uuid () {
 		awk '{OFS="-"; srand($6); sub(/./,"4",$5); sub(/./,substr("89ab",rand()*4,1),$6); print $2$3,$4,$5,$6,$7$8$9}' |
 		pbcopy && pbpaste;
 }
+
+check_last_exit_code() {
+  local LAST_EXIT_CODE=$?
+  if [[ $LAST_EXIT_CODE -ne 0 ]]; then
+    local EXIT_CODE_PROMPT=' '
+    EXIT_CODE_PROMPT+="%{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
+    echo "$EXIT_CODE_PROMPT"
+  fi
+}
+
+# set RPROMT directly. Will override other functions where it gets set
+RPROMPT='$(check_last_exit_code)'
