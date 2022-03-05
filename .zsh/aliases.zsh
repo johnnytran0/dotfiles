@@ -40,6 +40,7 @@ alias ....="cd ../../../"
 alias ap=ansible-playbook
 alias mem='top -o rsize'
 alias c=clear
+alias C='c; tmux clear-history; c;'
 alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias chromed='chrome --auto-open-devtools-for-tabs'
