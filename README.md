@@ -49,6 +49,11 @@ done
 
 * https://www.atlassian.com/git/tutorials/dotfiles
 
+* https://unix.stackexchange.com/questions/527344/how-to-clear-tmux-and-zsh-history-with-one-keypress
+```bash
+tmux clear-history
+```
+
 # License
 
 [MIT](https://github.com/johnnytr-n/dotfiles/blob/main/LICENSE) © Johnny Tran

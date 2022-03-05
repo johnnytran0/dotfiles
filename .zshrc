@@ -51,6 +51,7 @@ if command_exists tmux && [ -z $TMUX ]; then
   fi
 fi
 
+
 # keybinds
 # Allow history search via up/down keys.
 bindkey "^[[A" history-substring-search-up

@@ -1,0 +1,11 @@
+# /Users/johnny/.config/tmuxinator/dotfiles.yml
+
+name: dotfiles
+root: ~/.dotfiles
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - ls -laH
+        - find ~ -maxdepth 1 -name ".*" -type l -ls

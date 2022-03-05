@@ -5,4 +5,7 @@ force:
 	ansible-playbook ansible/dotfiles.yml --tags never
 
 todo:
-	for i in {0..255}; do  printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done
+	for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done
+
+clean:
+	rm -rf /tmp/tmux*

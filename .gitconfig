@@ -18,6 +18,7 @@
   l3 = log -n 3
   rs = reset --soft origin/HEAD
   rh = reset --hard origin/HEAD
+  stat = status
 [core]
 	autocrlf = input
 	editor = vim
