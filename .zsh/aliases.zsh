@@ -57,6 +57,9 @@ alias mux=tmuxinator
 alias plantuml='plantuml -X'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy | pbpaste"
 
+zle -N clear-buffer C
+bindkey 'C-k' clear-buffer
+
 # Mac
 alias f="open -a Finder ./"
 alias flushdns="sudo killall -HUP mDNSResponder"

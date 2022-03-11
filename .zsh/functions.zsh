@@ -145,7 +145,7 @@ pbex () {
 tmux_title() {
   [[ -n "$TMUX" ]] && print -Pn "\e]0;${PWD/$HOME/\~}\a"
 }
-add-zsh-hook precmd tmux_title
+# add-zsh-hook precmd tmux_title
 
 # uuid v4 https://serverfault.com/a/799198/622085
 uuid () {

@@ -7,7 +7,7 @@
 # Tested on
 | macOS | Version |
 | - | - |
-| Monterey | 12.1 |
+| Monterey | 12.2 |
 
 # Troubleshooting
 
@@ -29,6 +29,9 @@ $ chmod u+x ~/.zsh
 
 # References
 * The best way to store your dotfiles: A bare Git repository: https://www.atlassian.com/git/tutorials/dotfiles
+* Your unofficial guide to dotfiles on GitHub: https://dotfiles.github.io/inspiration/
+* https://github.com/geerlingguy/ansible-role-dotfiles
+* iTerm2 keymaps for tmux: https://tangledhelix.com/blog/2012/04/28/iterm2-keymaps-for-tmux/
 
 # License
 [MIT](https://github.com/johnnytr-n/dotfiles/blob/main/LICENSE) © Johnny Tran
