@@ -9,6 +9,9 @@
 | - | - |
 | Monterey | 12.2 |
 
+# iTerm2
+[Preferences > Load preferences from a custom folder or URL](https://iterm2.com/documentation-preferences-general.html)
+
 # Troubleshooting
 
 ### permission denied: \~/.zsh/foo.zsh
