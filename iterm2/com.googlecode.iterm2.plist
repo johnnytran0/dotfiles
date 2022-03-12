@@ -2504,13 +2504,13 @@
 	<key>Hotkey</key>
 	<true/>
 	<key>HotkeyChar</key>
-	<integer>96</integer>
+	<integer>126</integer>
 	<key>HotkeyCode</key>
 	<integer>50</integer>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>HotkeyModifiers</key>
-	<integer>1048848</integer>
+	<integer>1179914</integer>
 	<key>NeverWarnAboutShortLivedSessions_D069D2C3-3B41-41A0-8DDB-163E9D9DD18D</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_D069D2C3-3B41-41A0-8DDB-163E9D9DD18D_selection</key>
