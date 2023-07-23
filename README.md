@@ -7,7 +7,7 @@
 # Tested on
 | macOS | Version |
 | - | - |
-| Monterey | 12.2 |
+| Monterey | 12.4 |
 
 # iTerm2
 [Preferences > Load preferences from a custom folder or URL](https://iterm2.com/documentation-preferences-general.html)
