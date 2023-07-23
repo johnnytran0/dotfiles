@@ -51,11 +51,13 @@ alias docker_ip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddr
 alias docker_host="echo $(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)"
 alias grep='grep --color'
 alias json='python -m json.tool'
+alias jsonv='jq empty; echo $!'
 alias lsd='ls -lah | grep "^d"'
 # https://github.com/tmuxinator/tmuxinator#shorthand
 alias mux=tmuxinator
 alias plantuml='plantuml -X'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy | pbpaste"
+alias srcz="source ~/.zshrc"
 
 zle -N clear-buffer C
 bindkey 'C-k' clear-buffer
