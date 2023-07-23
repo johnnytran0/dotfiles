@@ -19,6 +19,7 @@
   rs = reset --soft origin/HEAD
   rh = reset --hard origin/HEAD
   stat = status
+  stt = status
 [core]
 	autocrlf = input
 	editor = vim
