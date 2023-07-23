@@ -1,7 +1,7 @@
 # /Users/johnny/.config/tmuxinator/dotfiles.yml
 
 name: dotfiles
-root: ~/.dotfiles
+root: ~/.config/dotfiles
 
 windows:
   - editor:
