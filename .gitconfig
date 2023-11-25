@@ -18,6 +18,8 @@
   l3 = log -n 3
   rs = reset --soft origin/HEAD
   rh = reset --hard origin/HEAD
+  stat = status
+  stt = status
 [core]
 	autocrlf = input
 	editor = vim
@@ -31,6 +33,6 @@
 	branch = false
 [user]
 	name = Johnny Tran
-	email = 48148643+johnnytr-n@users.noreply.github.com
+	email = 48148643+johnnytran0@users.noreply.github.com
 [web]
 	browser = 'google-chrome'

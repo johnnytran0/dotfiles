@@ -80,6 +80,11 @@ hgrep() {
   history 1 | grep $1
 }
 
+nil () {
+  echo '00000000-0000-0000-0000-00000000' |
+    pbcopy && pbpaste;
+}
+
 # Packs $2-$n into $1 depending on $1's extension
 # Found at <http://pastebin.com/CTra4QTF>
 pack() {
@@ -137,10 +142,10 @@ pbex () {
     fi
 }
 
-nil () {
-	echo '00000000-0000-0000-0000-00000000' |
-		pbcopy && pbpaste;
+tmux_title() {
+  [[ -n "$TMUX" ]] && print -Pn "\e]0;${PWD/$HOME/\~}\a"
 }
+# add-zsh-hook precmd tmux_title
 
 # uuid v4 https://serverfault.com/a/799198/622085
 uuid () {
@@ -153,9 +158,7 @@ uuid () {
 check_last_exit_code() {
   local LAST_EXIT_CODE=$?
   if [[ $LAST_EXIT_CODE -ne 0 ]]; then
-    local EXIT_CODE_PROMPT=' '
-    EXIT_CODE_PROMPT+="%{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
-    echo "$EXIT_CODE_PROMPT"
+    echo " %{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
   fi
 }
 

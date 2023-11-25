@@ -1,14 +1,16 @@
 # dotfiles
  > In Unix and Unix-like environments, any file or folder that starts with a dot character.
-
  > A convention arose of using dotfiles in the user's home directory to store per-user config.
 
 \[[wikipedia](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)\]
 
 # Tested on
 | macOS | Version |
-| -| - |
-| Monterey | 12.1 |
+| - | - |
+| Monterey | 12.4 |
+
+# iTerm2
+[Preferences > Load preferences from a custom folder or URL](https://iterm2.com/documentation-preferences-general.html)
 
 # Troubleshooting
 
@@ -27,28 +29,12 @@ drw-r--r--
 
 $ chmod u+x ~/.zsh
 ```
-# Monokai/Molokai hex colors. 
-# http://www.colourlovers.com/lover/Monokai/colors 
-#   cyan - #00b9d7
-#   gold/brown - #abaa98
-#   green - #82cdb9
-#   off-white #f5f5f5
-#   orange - #f37259
-#   pink  - #ff3d70
-#   pink/magenta - #f7208b
-#   yellow - #f9f5c2
-
-
-```bash
-for i in {0..255}; do
-    printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
-done
-```
 
 # References
-
-* https://www.atlassian.com/git/tutorials/dotfiles
+* The best way to store your dotfiles: A bare Git repository: https://www.atlassian.com/git/tutorials/dotfiles
+* Your unofficial guide to dotfiles on GitHub: https://dotfiles.github.io/inspiration/
+* https://github.com/geerlingguy/ansible-role-dotfiles
+* iTerm2 keymaps for tmux: https://tangledhelix.com/blog/2012/04/28/iterm2-keymaps-for-tmux/
 
 # License
-
 [MIT](https://github.com/johnnytr-n/dotfiles/blob/main/LICENSE) © Johnny Tran
