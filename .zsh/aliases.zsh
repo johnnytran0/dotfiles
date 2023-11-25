@@ -49,9 +49,11 @@ alias cpu='top -o cpu'
 alias dc=docker-compose
 alias docker_ip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias docker_host="echo $(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)"
+alias g=gcloud
 alias grep='grep --color'
 alias json='python -m json.tool'
 alias jsonv='jq empty; echo $!'
+alias k=kubectl
 alias lsd='ls -lah | grep "^d"'
 # https://github.com/tmuxinator/tmuxinator#shorthand
 alias mux=tmuxinator
