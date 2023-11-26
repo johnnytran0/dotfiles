@@ -148,6 +148,7 @@ tmux_title() {
 # add-zsh-hook precmd tmux_title
 
 # uuid v4 https://serverfault.com/a/799198/622085
+alias uid=uuid
 uuid () {
 	od -x /dev/urandom |
 		head -1 |
