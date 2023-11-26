@@ -14,6 +14,12 @@ export DISABLE_AUTO_TITLE=true
 export EDITOR=vim
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
+# Antigen https://github.com/zsh-users/antigen
+source /usr/local/share/antigen/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle paulirish/git-open
+antigen apply
+
 # Enable plugins.
 plugins=(git history kubectl history-substring-search)
 
