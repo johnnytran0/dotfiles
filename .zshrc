@@ -20,6 +20,17 @@ plugins=(git history kubectl history-substring-search)
 . ~/.zsh/aliases.zsh
 . ~/.zsh/functions.zsh
 
+# gcloud info --format="value(installation.sdk_root)"
+export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+if [ -d "/usr/local/opt/ruby/bin" ]; then
+  export PATH=/usr/local/opt/ruby/bin:$PATH
+  # elif Apple M1
+  # export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
 # Homebrew
 # If we're on OS X and using Homebrew package manager, do some Homebrew-specific environmental tweaks
 if command_exists brew; then
@@ -30,11 +41,12 @@ else
   HOMEBREW_PREFIX="/opt/homebrew"
 fi
 
-if [ -d "/usr/local/opt/ruby/bin" ]; then
-  export PATH=/usr/local/opt/ruby/bin:$PATH
-  # elif Apple M1
-  # export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
+# https://github.com/nvm-sh/nvm#installing-and-updating
+if command_exists nvm; then
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  . ~/.zsh/nvm.zsh
 fi
 
 # When connecting via ssh, always [re]attach to a terminal manager
@@ -50,7 +62,6 @@ if command_exists tmux && [ -z $TMUX ]; then
     fi
   fi
 fi
-
 
 # keybinds
 # Allow history search via up/down keys.
