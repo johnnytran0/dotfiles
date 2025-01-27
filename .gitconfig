@@ -20,6 +20,8 @@
   rh = reset --hard origin/HEAD
   stat = status
   stt = status
+[commit]
+  gpgsign = true
 [core]
 	autocrlf = input
 	editor = vim
@@ -31,8 +33,11 @@
 	defaultBranch = main
 [pager]
 	branch = false
+[tag]
+  gpgSign = true
 [user]
 	name = Johnny Tran
 	email = 48148643+johnnytran0@users.noreply.github.com
+  signingkey = 703F1A0769D51230
 [web]
 	browser = 'google-chrome'
