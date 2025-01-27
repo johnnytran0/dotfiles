@@ -15,6 +15,8 @@
   graph = log --graph
   l1 = log -n 1
   l3 = log -n 3
+  ph = push
+  pl = pull
   pushu = push -u origin HEAD
   rh = reset --hard origin/HEAD
   rs = reset --soft origin/HEAD
