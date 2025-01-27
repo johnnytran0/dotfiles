@@ -2,22 +2,22 @@
 [advice]
   # statusHints = false
 [alias]
-  au = add -u
   add = add .
+  au = add -u
   c = commit
   ca = commit -a
-  cm = commit -m
   cam = commit -am
+  cm = commit -m
   d = diff
   discard = reset --hard origin/HEAD
   ds = diff --staged
-  pushu = push -u origin HEAD
   force = push -f origin HEAD
   graph = log --graph
   l1 = log -n 1
   l3 = log -n 3
-  rs = reset --soft origin/HEAD
+  pushu = push -u origin HEAD
   rh = reset --hard origin/HEAD
+  rs = reset --soft origin/HEAD
   stat = status
   stt = status
 [commit]
