@@ -1,10 +1,10 @@
 ---
-- name: link johnnytr-n/dotfiles to ~
+- name: link johnnytran0/dotfiles to ~
   hosts: localhost
   gather_facts: no
   become: no
   vars:
-    dotfiles_repo: git@github.com:johnnytr-n/dotfiles.git
+    dotfiles_repo: git@github.com:johnnytran0/dotfiles.git
     dotfiles_files:
       - .bash_profile
       - .bashrc

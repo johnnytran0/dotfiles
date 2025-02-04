@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-dotfiles_repo="git@github.com:johnnytr-n/dotfiles.git"
+dotfiles_repo="git@github.com:johnnytran0/dotfiles.git"
 dotfiles_files=(
     .bash_profile
     .bashrc
@@ -36,6 +36,7 @@ done
 ln -sf ~/.config/dotfiles/.zsh ~/.zsh
 chmod 0744 ~/.zsh
 
+ln -sf ~/.config/dotfiles/tmuxinator ~/.config/tmuxinator
+
 # Change user's default shell to Zsh
 chsh -s /bin/zsh $USER
-
