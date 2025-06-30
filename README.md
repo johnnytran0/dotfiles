@@ -16,6 +16,9 @@
 # iTerm2
 [Preferences > Load preferences from a custom folder or URL](https://iterm2.com/documentation-preferences-general.html)
 
+# SpeedCrunch
+https://heldercorreia.bitbucket.io/speedcrunch/advanced/colorschemeformat.html
+
 # Troubleshooting
 
 ### permission denied: \~/.zsh/foo.zsh
