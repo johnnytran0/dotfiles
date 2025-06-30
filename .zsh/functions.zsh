@@ -147,6 +147,23 @@ tmux_title() {
 }
 # add-zsh-hook precmd tmux_title
 
+# https://www.codyhiar.com/blog/custom-backward-word-deletion-in-zsh/
+default-backward-delete-word () {
+  local WORDCHARS=$WORDCHARS
+  # Use bash string manipulation to remove `:` so our delete will stop at it
+  WORDCHARS="${WORDCHARS//:}"
+  # Use bash string manipulation to remove `/` so our delete will stop at it
+  WORDCHARS="${WORDCHARS//\/}"
+  # Use bash string manipulation to remove `.` so our delete will stop at it
+  WORDCHARS="${WORDCHARS//.}"
+  # zle <widget-name> will run an existing widget.
+  zle backward-delete-word
+}
+
+zle -N default-backward-delete-word
+# https://superuser.com/a/1436727
+bindkey '^[^?' default-backward-delete-word
+
 # uuid v4 https://serverfault.com/a/799198/622085
 alias uid=uuid
 uuid () {
@@ -156,10 +173,12 @@ uuid () {
 		pbcopy && pbpaste;
 }
 
+setopt prompt_subst
+
 check_last_exit_code() {
   local LAST_EXIT_CODE=$?
   if [[ $LAST_EXIT_CODE -ne 0 ]]; then
-    echo " %{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
+    echo "%{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
   fi
 }
 

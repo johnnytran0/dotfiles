@@ -49,7 +49,7 @@ alias cpu='top -o cpu'
 alias dc='docker compose'
 alias docker_ip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias docker_host="echo $(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)"
-alias g=gcloud
+alias g=git
 alias grep='grep --color'
 alias json='python -m json.tool'
 alias jsonv='jq empty; echo $!'
@@ -60,7 +60,8 @@ alias oll='ollama'
 alias mux=tmuxinator
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy | pbpaste"
 alias srcz="source ~/.zshrc"
-
+alias tf=terraform
+alias tmux="tmux -u"
 # Microsoft 365
 alias msexcel='open -b com.microsoft.Excel'
 alias msppt='open -b com.microsoft.Powerpoint'
