@@ -33,4 +33,7 @@ set hlsearch            " highlighted search results
 " clipboard
 set clipboard=unnamed   " allow yy, etc. to interact with OS X clipboard
 
-" colorscheme sublimemonokai
+let g:python_highlight_all = 1
+set termguicolors
+
+colorscheme sublimemonokai
