@@ -13,18 +13,17 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800
 export DISABLE_AUTO_TITLE=true
 export EDITOR=vim
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-
-# Antigen https://github.com/zsh-users/antigen
-source /usr/local/share/antigen/antigen.zsh
-antigen use oh-my-zsh
-antigen bundle paulirish/git-open
-antigen apply
+export XDG_CONFIG_HOME="$HOME/.config"
+export GPG_TTY=$(tty)
 
 # Enable plugins.
 plugins=(git history kubectl history-substring-search)
 
 . ~/.zsh/aliases.zsh
 . ~/.zsh/functions.zsh
+
+# pipx
+export PATH="$HOME/.local/bin:$PATH"
 
 # gcloud info --format="value(installation.sdk_root)"
 export PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH"
@@ -41,10 +40,7 @@ fi
 # If we're on OS X and using Homebrew package manager, do some Homebrew-specific environmental tweaks
 if command_exists brew; then
   HOMEBREW_PREFIX="$(brew --prefix)"
-  export PATH="/usr/local/sbin:$PATH"
-else
-  # M1 install
-  HOMEBREW_PREFIX="/opt/homebrew"
+  export PATH="/usr/local/sbin:$HOMEBREW_PREFIX/bin:$PATH"
 fi
 
 # https://github.com/nvm-sh/nvm#installing-and-updating
@@ -79,9 +75,9 @@ bindkey '\e\eOD' backward-word
 bindkey '\e\eOC' forward-word
 
 # oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 # must come after sourcing oh-my-zsh, else it is overwritten
-export PROMPT='🔥%~%b%% '
+export PROMPT='%~%b%% '
 
 # LaTeX
 export TEXTLIVE_ROOT=/usr/local/texlive/2021basic/bin/universal-darwin
@@ -98,12 +94,19 @@ if [ -r "$GIT_BASH_COMPLETION_SOURCE" ] && [ -r "$GIT_ZSH_COMPLETION_SOURCE" ]; 
 fi
 
 # ZSH
-# must be sourced at the end: https://github.com/zsh-users/zsh-syntax-highlighting
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-if [ /usr/local/bin/kubectl ];
-	then source <(kubectl completion zsh);
+if [ -n "$HOMEBREW_PREFIX" ]; then
+  # must be sourced at the end: https://github.com/zsh-users/zsh-syntax-highlighting
+  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# if [ /usr/local/bin/kubectl ];
+#   then source <(kubectl completion zsh);
+# fi
+
+autoload -Uz select-word-style
+select-word-style bash
 
 # https://gist.github.com/ctechols/ca1035271ad134841284
 # https://carlosbecker.com/posts/speeding-up-zsh
