@@ -10,7 +10,7 @@ set showmatch           " show matching brackets
 filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
-
+set mouse=a
 " column-width visual indication
 let &colorcolumn=join(range(81,101),",")
 highlight ColorColumn ctermbg=235 guibg=#001D2F
@@ -32,3 +32,8 @@ set hlsearch            " highlighted search results
 
 " clipboard
 set clipboard=unnamed   " allow yy, etc. to interact with OS X clipboard
+
+let g:python_highlight_all = 1
+set termguicolors
+
+colorscheme sublimemonokai

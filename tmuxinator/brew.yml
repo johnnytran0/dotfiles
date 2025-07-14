@@ -1,0 +1,9 @@
+name: brew
+root: ~/.config/dotfiles
+
+windows:
+  - ~:
+      layout: even-horizontal
+      panes:
+        - brew list
+        - vim Brewfile

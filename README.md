@@ -4,13 +4,20 @@
 
 \[[wikipedia](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)\]
 
+# Installation
+1. Install [Homebrew](https://brew.sh/)
+1. Run `sh install.sh`
+
 # Tested on
-| macOS | Version |
-| - | - |
-| Monterey | 12.4 |
+| macOS   | Version |
+| ------- | ------- |
+| Sequoia | 15.2    |
 
 # iTerm2
 [Preferences > Load preferences from a custom folder or URL](https://iterm2.com/documentation-preferences-general.html)
+
+# SpeedCrunch
+https://heldercorreia.bitbucket.io/speedcrunch/advanced/colorschemeformat.html
 
 # Troubleshooting
 
@@ -35,6 +42,7 @@ $ chmod u+x ~/.zsh
 * Your unofficial guide to dotfiles on GitHub: https://dotfiles.github.io/inspiration/
 * https://github.com/geerlingguy/ansible-role-dotfiles
 * iTerm2 keymaps for tmux: https://tangledhelix.com/blog/2012/04/28/iterm2-keymaps-for-tmux/
+* https://github.com/tmux/tmux/wiki/FAQ#how-do-i-make-modified-function-and-arrow-keys-like-c-up-m-pageup-work-inside-tmux
 
 # License
-[MIT](https://github.com/johnnytr-n/dotfiles/blob/main/LICENSE) © Johnny Tran
+[MIT](https://github.com/johnnytran0/dotfiles/blob/main/LICENSE) © Johnny Tran

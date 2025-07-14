@@ -1,38 +1,45 @@
 # https://git-scm.com/docs/git-config#_configuration_file
 [advice]
-	# statusHints = false
+  # statusHints = false
 [alias]
-	au = add -u
   add = add .
+  au = add -u
   c = commit
   ca = commit -a
-  cm = commit -m
   cam = commit -am
+  cm = commit -m
   d = diff
   discard = reset --hard origin/HEAD
   ds = diff --staged
-  pushu = push -u origin HEAD
   force = push -f origin HEAD
   graph = log --graph
   l1 = log -n 1
   l3 = log -n 3
-  rs = reset --soft origin/HEAD
+  ph = push
+  pl = pull
+  pushu = push -u origin HEAD
   rh = reset --hard origin/HEAD
+  rs = reset --soft origin/HEAD
   stat = status
   stt = status
+[commit]
+  gpgsign = true
 [core]
-	autocrlf = input
-	editor = vim
-	excludesFile = ~/.gitignore
-	pager = cat
+  autocrlf = input
+  editor = vim
+  excludesFile = ~/.gitignore
+  pager = cat
 [credential]
   helper = osxkeychain
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [pager]
-	branch = false
+  branch = false
+[tag]
+  gpgSign = true
 [user]
-	name = Johnny Tran
-	email = 48148643+johnnytran0@users.noreply.github.com
+  name = Johnny Tran
+  email = 48148643+johnnytran0@users.noreply.github.com
+  signingkey = 703F1A0769D51230
 [web]
-	browser = 'google-chrome'
+  browser = 'google-chrome'
