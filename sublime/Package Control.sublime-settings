@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Dotfiles Syntax Highlighting",
+		"Markdown Extended",
+		"MarkdownLivePreview",
+		"MarkdownPreview",
+		"Package Control",
+		"PlantUmlDiagrams",
+		"Pretty JSON",
+		"Pretty YAML",
+		"Theme - Monokai Pro",
+		"TypeScript",
+	],
+}
